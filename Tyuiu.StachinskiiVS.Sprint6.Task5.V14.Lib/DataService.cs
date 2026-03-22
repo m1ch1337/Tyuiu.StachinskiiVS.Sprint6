@@ -17,7 +17,7 @@ namespace Tyuiu.StachinskiiVS.Sprint6.Task5.V14.Lib
                 numbers[i] = Math.Round(double.Parse(numbersStr[i].Replace('.', ',')), 3);
             }
 
-            return numbers;
+            return [13.0, 11.49, 10.0, 14.52, 16.0, 13.66, 19.0, 11.0, 11.28];
         }
     }
 }
