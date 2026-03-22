@@ -57,7 +57,7 @@ namespace Tyuiu.StachinskiiVS.Sprint6.Task2.V25
 
         private void buttonReference_SVS_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Таск 1 выполнил студент группы ИСПБ-24-1 Стачинский В.С.", "О программе", MessageBoxButtons.OK);
+            MessageBox.Show("Таск 2 выполнил студент группы ИСПБ-24-1 Стачинский В.С.", "О программе", MessageBoxButtons.OK);
         }
 
         private void FormMain_Load(object sender, EventArgs e)

@@ -3,14 +3,33 @@
 namespace Tyuiu.StachinskiiVS.Sprint6.Task2.V25.Test
 {
     [TestClass]
-    public class DataServiceTest
+    public sealed class DataServiceTest
     {
-        DataService service = new DataService();
         [TestMethod]
-        public void DataTest()
+        public void TestMethod1()
         {
-            double[] TestArray = new double[] { 23.61, 16.08, 7.84, 4.58, 2.88, 0.75, -4.47, -9.46, -7.41, -6.16, -7.29 };
-            CollectionAssert.AreEqual(TestArray, service.GetMassFunction(-5, 5));
+            DataService ds = new DataService();
+            int start = -5;
+            int stop = 5;
+            double[] res = ds.GetMassFunction(start, stop);
+            double[] wait = new double[11];
+
+            for (int i = 0; i < 11; i++)
+            {
+                int x = start + i;
+                double denominator = Math.Sin(x) - 2;
+
+                if (Math.Abs(denominator) < 0.0001)
+                {
+                    wait[i] = 0;
+                }
+                else
+                {
+                    wait[i] = Math.Round((5 * x + 2.5) / denominator + 2, 2);
+                }
+            }
+
+            CollectionAssert.AreEqual(wait, res);
         }
     }
 }

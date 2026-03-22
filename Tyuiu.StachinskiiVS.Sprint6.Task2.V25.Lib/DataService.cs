@@ -6,20 +6,26 @@ namespace Tyuiu.StachinskiiVS.Sprint6.Task2.V25.Lib
     {
         public double[] GetMassFunction(int startValue, int stopValue)
         {
-            double[] output = new double[stopValue - startValue + 1];
-            for (int x = startValue, i = 0; i < output.Length; i++, x++)
+            int len = stopValue - startValue + 1;
+            double[] result = new double[len];
+
+            for (int i = 0; i < len; i++)
             {
-                double result = Math.Round((5 * x + 2.5) / (Math.Sin(x) - 2) + 2, 2);
-                if (!double.IsNaN(result))
+                int x = startValue + i;
+                double denominator = Math.Sin(x) - 2;
+
+                if (Math.Abs(denominator) < 0.0001)
                 {
-                    output[i] = result;
+                    result[i] = 0;
                 }
                 else
                 {
-                    output[i] = 0;
+                    double value = (5 * x + 2.5) / denominator + 2;
+                    result[i] = Math.Round(value, 2);
                 }
             }
-            return output;
+
+            return result;
         }
     }
 }
