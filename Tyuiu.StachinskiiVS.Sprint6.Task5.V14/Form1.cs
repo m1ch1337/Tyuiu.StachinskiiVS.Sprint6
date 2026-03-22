@@ -1,0 +1,44 @@
+using Tyuiu.StachinskiiVS.Sprint6.Task5.V14.Lib;
+
+namespace Tyuiu.StachinskiiVS.Sprint6.Task5.V14
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGo_Click(object sender, EventArgs e)
+        {
+            DataService ds = new();
+            int i = 0;
+            double[] r = ds.LoadFromDataFile(Path.Combine("C:", "DataSprint6", "InPutDataFileTask5V28.txt"));
+            foreach (double d in r)
+            {
+                GridBox.Rows.Add(i, d); i++;
+                chart.Series[0].Points.AddXY(i, d);
+            }
+        }
+
+        private void chart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTask_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
